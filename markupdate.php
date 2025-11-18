@@ -1,15 +1,15 @@
 <?php
-// Connect to database
+
 $con = mysqli_connect('localhost', 'root', '', 'website');
 if (!$con) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-// Initialize variables
+
 $m1 = $m2 = $m3 = $total = '';
 $selectedRoll = '';
 
-// If a RollNo is selected from the dropdown, preload marks
+
 if (isset($_POST['Rollno'])) {
     $selectedRoll = $_POST['Rollno'];
     $res = mysqli_query($con, "SELECT * FROM studmark WHERE Rollno='$selectedRoll'");
@@ -22,7 +22,7 @@ if (isset($_POST['Rollno'])) {
     }
 }
 
-// If form is submitted to update/insert marks
+
 if (isset($_POST['Submit'])) {
     $m1    = $_POST['m1'];
     $m2    = $_POST['m2'];
@@ -30,10 +30,10 @@ if (isset($_POST['Submit'])) {
     $total = $_POST['total'];
     $roll  = $_POST['Rollno']; 
 
-    // Check if record exists
+  
     $check = mysqli_query($con, "SELECT * FROM studmark WHERE Rollno='$roll'");
     if (mysqli_num_rows($check) == 0) {
-        // INSERT
+       
         $sql = "INSERT INTO studmark (Rollno, Science, Maths, English, Total) 
                 VALUES ('$roll', '$m1', '$m2', '$m3', '$total')";
         if (mysqli_query($con, $sql)) {
@@ -42,7 +42,7 @@ if (isset($_POST['Submit'])) {
             echo "<h3 style='color:red;'>❌ Error: " . mysqli_error($con) . "</h3>";
         }
     } else {
-        // UPDATE
+       
         $sql = "UPDATE studmark SET Science='$m1', Maths='$m2', English='$m3', Total='$total' 
                 WHERE Rollno='$roll'";
         if (mysqli_query($con, $sql)) {
@@ -53,7 +53,7 @@ if (isset($_POST['Submit'])) {
     }
 }
 
-// Fetch RollNo + Name for dropdown
+
 $sq = "SELECT Rollno, Name FROM studreg";
 $result = mysqli_query($con, $sq);
 ?>
