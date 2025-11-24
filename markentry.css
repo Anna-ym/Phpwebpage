@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form box */
+.form-container {
+    width: 420px;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Inputs & Labels */
+label {
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+    color: #444;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 5px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    border-color: #1e3c72;
+    box-shadow: 0 0 6px rgba(30, 60, 114, 0.4);
+}
+
+/* Calculate Button */
+.calc-box {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.calc-btn {
+    width: 48%;
+    background: #17a2b8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.calc-btn:hover {
+    background: #117a8b;
+}
+
+/* Submit and reset buttons */
+.btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    width: 48%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background: #218838;
+}
+
+.reset-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    width: 48%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.reset-btn:hover {
+    background: #c82333;
+}

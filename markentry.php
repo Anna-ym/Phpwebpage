@@ -5,7 +5,6 @@ if (!$con) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-
 if (isset($_POST['Submit'])) {
 
     $m1    = $_POST['m1'];
@@ -18,12 +17,11 @@ if (isset($_POST['Submit'])) {
             VALUES ('$roll', '$m1', '$m2', '$m3', '$total')";
 
     if (mysqli_query($con, $sq1)) {
-        echo "<h3 style='color:green;'>✔ Student Marks Entered Successfully!</h3>";
+        echo "<h3 style='color:green; text-align:center;'>✔ Student Marks Entered Successfully!</h3>";
     } else {
-        echo "<h3 style='color:red;'>❌ Error: " . mysqli_error($con) . "</h3>";
+        echo "<h3 style='color:red; text-align:center;'>❌ Error: " . mysqli_error($con) . "</h3>";
     }
 }
-
 
 $sq = "SELECT Rollno FROM studreg";
 $result = mysqli_query($con, $sq);
@@ -32,33 +30,45 @@ $result = mysqli_query($con, $sq);
 <html>
 <head>
     <title>Marks Entry</title>
+    <link rel="stylesheet" href="markentry.css">
 </head>
 <body>
+
+<div class="form-container">
 
 <h2>Enter Marks</h2>
 
 <form method="POST">
 
-    <label>Select Roll No:</label><br>
-    <select name="Rollno">
-        <?php
-        while ($rows = mysqli_fetch_assoc($result)) {
-            echo "<option value='{$rows['Rollno']}'>{$rows['Rollno']}</option>";
-        }
-        ?>
-    </select><br><br>
+    <label>Select Roll No</label>
+    <select name="Rollno" required>
+        <?php while ($rows = mysqli_fetch_assoc($result)) { ?>
+            <option value="<?= $rows['Rollno']; ?>"><?= $rows['Rollno']; ?></option>
+        <?php } ?>
+    </select>
 
-    Science Mark: <input type="text" id="a" name="m1"><br><br>
-    Maths Mark:   <input type="text" id="b" name="m2"><br><br>
-    English Mark: <input type="text" id="c" name="m3"><br><br>
+    <label>Science Mark</label>
+    <input type="text" id="a" name="m1" required>
 
-    <input type="button" value="Calculate Total Marks" onclick="fun()">
-    <input type="text" id="ab" name="total" readonly><br><br>
+    <label>Maths Mark</label>
+    <input type="text" id="b" name="m2" required>
 
-    <input type="reset" value="Reset">
-    <input type="submit" name="Submit" value="Submit">
+    <label>English Mark</label>
+    <input type="text" id="c" name="m3" required>
+
+    <div class="calc-box">
+        <input type="button" value="Calculate Total" onclick="fun()" class="calc-btn">
+        <input type="text" id="ab" name="total" readonly placeholder="Total marks">
+    </div>
+
+    <div class="btns">
+        <button type="reset" class="reset-btn">Reset</button>
+        <button type="submit" name="Submit" class="submit-btn">Submit</button>
+    </div>
 
 </form>
+
+</div>
 
 <script>
 function fun() {

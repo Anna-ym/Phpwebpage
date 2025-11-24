@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form container */
+.form-container {
+    width: 400px;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    display: block;
+    margin-top: 15px;
+    color: #444;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    font-size: 15px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+/* Input focus effect */
+input:focus,
+textarea:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 5px rgba(106, 17, 203, 0.4);
+}
+
+/* Buttons */
+.btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Reset button */
+.reset-btn {
+    background: #d9534f;
+}
+
+.reset-btn:hover {
+    background: #c9302c;
+}
+
+/* Submit button */
+.submit-btn {
+    background: #5cb85c;
+}
+
+.submit-btn:hover {
+    background: #449d44;
+}

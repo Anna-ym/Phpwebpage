@@ -1,0 +1,47 @@
+/* Background for left frame */
+.menu-body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #3a6073, #16222a);
+    font-family: "Poppins", sans-serif;
+}
+
+/* Sidebar container */
+.menu-container {
+    padding: 20px;
+    text-align: left;
+}
+
+/* Sidebar heading */
+.menu-container h2 {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+}
+
+/* Menu links */
+.menu-item {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 15px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Hover effect */
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(5px);
+}
+
+/* Active click effect */
+.menu-item:active {
+    background: rgba(255, 255, 255, 0.4);
+}

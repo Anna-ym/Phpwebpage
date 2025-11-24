@@ -10,9 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Pass    = $_POST["Pass"];
     $Repass  = $_POST["Repass"];
 
-   
     if ($Pass !== $Repass) {
-        echo "<h3 style='color:red;'>❌ Passwords do NOT match. Please try again.</h3>";
+        echo "<h3 style='color:red; text-align:center;'>❌ Passwords do NOT match. Please try again.</h3>";
     } else {
 
         $con = mysqli_connect('localhost', 'root', '', 'website');
@@ -21,17 +20,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("❌ Cannot connect to database");
         }
 
-       
         $sq = "INSERT INTO studreg (Rollno, Name, Address, Phno, Username, Password) 
                VALUES ('$Rollno', '$Name', '$Address', '$Phno', '$User', '$Pass')";
 
         if (mysqli_query($con, $sq)) {
-            echo "<h3 style='color:green;'>✔ Student Registered Successfully!</h3>";
+            echo "<h3 style='color:green; text-align:center;'>✔ Student Registered Successfully!</h3>";
         } else {
-            echo "<h3 style='color:red;'>❌ Error inserting record!</h3>";
+            echo "<h3 style='color:red; text-align:center;'>❌ Error inserting record!</h3>";
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -40,50 +39,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration</title>
+
+    <!-- Link external CSS -->
+    <link rel="stylesheet" href="studentreg.css">
 </head>
 <body>
 
-<center><h2>STUDENT REGISTRATION FORM</h2></center>
-<br><br>
+<div class="form-container">
+    <h2>Student Registration Form</h2>
 
+    <form method="POST">
 
-<form method="POST">
-
-    <center> Roll_no: 
+        <label>Roll Number</label>
         <input type="text" name="Rollno" required>
-    </center><br>
 
-    <center> Name: 
+        <label>Name</label>
         <input type="text" name="Name" required>
-    </center><br>
 
-    <center> Address: 
+        <label>Address</label>
         <textarea name="Address" required></textarea>
-    </center><br>
 
-    <center> Phone Number: 
+        <label>Phone Number</label>
         <input type="number" name="Phno" required>
-    </center><br>
 
-    <center> Username: 
+        <label>Username</label>
         <input type="text" name="User" required>
-    </center><br>
 
-    <center> Password: 
+        <label>Password</label>
         <input type="password" name="Pass" required>
-    </center><br>
 
-    <center> Retype Password: 
+        <label>Retype Password</label>
         <input type="password" name="Repass" required>
-    </center><br>
 
-    <center>
-        <input type="reset" value="Reset">&nbsp;&nbsp;
-        <input type="submit" value="Submit">
-    </center>
+        <div class="btns">
+            <button type="reset" class="reset-btn">Reset</button>
+            <button type="submit" class="submit-btn">Submit</button>
+        </div>
 
-</form>
-
+    </form>
+</div>
 
 </body>
 </html>
